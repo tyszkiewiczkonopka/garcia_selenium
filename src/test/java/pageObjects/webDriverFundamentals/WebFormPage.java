@@ -2,6 +2,7 @@ package pageObjects.webDriverFundamentals;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +10,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pageObjects.base.BasePage;
 
+import java.security.Key;
+
 @Getter
 @Slf4j
 public class WebFormPage extends BasePage {
+    Keys ctrl = SystemUtils.IS_OS_MAC ? Keys.COMMAND : Keys.CONTROL;
+
 
     @FindBy(css = "input[type='range']")
     private WebElement slider;
@@ -41,15 +46,15 @@ public class WebFormPage extends BasePage {
     }
 
     public WebFormPage copyTextFromTextInput() {
-        textInput.sendKeys(Keys.COMMAND, "a");
-        textInput.sendKeys(Keys.COMMAND, "c");
+        textInput.sendKeys(ctrl, "a");
+        textInput.sendKeys(ctrl, "c");
         String textValue = textInput.getAttribute("value");
         log.debug("Copied text: " + textValue);
         return this;
     }
 
     public WebFormPage pasteTextToTextarea(){
-        textarea.sendKeys(Keys.COMMAND, "v");
+        textarea.sendKeys(ctrl, "v");
         log.debug("Pasted text: " + getTextFromTextarea());
         return this;
     }
