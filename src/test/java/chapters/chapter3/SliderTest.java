@@ -1,12 +1,10 @@
 package chapters.chapter3;
 
 import baseTest.BaseTest;
+import helpers.ScreenshotHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import pageObjects.webDriverFundamentals.WebFormPage;
 import providers.UrlProvider;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,46 +13,35 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SliderTest extends BaseTest {
 
     @Test
-    public void should_move_slider_with_javascriptexecutor() throws InterruptedException {
+    public void should_move_slider_with_javascriptexecutor() {
+        WebFormPage webFormPage = new WebFormPage(driver);
+
         driver.get(UrlProvider.WEB_FORM);
-        WebElement slider = driver.findElement(By.cssSelector("input[type='range']"));
-        String initialSliderValue = slider.getDomAttribute("value");
+        String initialSliderValue = webFormPage.getSlider().getDomAttribute("value");
         log.debug("Initial slider value is: " + initialSliderValue);
-        Thread.sleep(3000);
 
-        changeSliderValue(7, slider);
-
-        String newSliderValue = slider.getDomAttribute("value");
+        webFormPage.changeSliderValue(7, webFormPage.getSlider());
+        String newSliderValue = webFormPage.getSlider().getDomAttribute("value");
         log.debug("New slider value is: " + newSliderValue);
+        ScreenshotHelper.takeScreenshot(driver, "slider_js");
 
         assertThat(initialSliderValue).isNotEqualTo(newSliderValue);
     }
 
     @Test
-    public void should_move_slider_with_arrow() throws InterruptedException {
+    public void should_move_slider_with_arrow() {
+        WebFormPage webFormPage = new WebFormPage(driver);
+
         driver.get(UrlProvider.WEB_FORM);
-        WebElement slider = driver.findElement(By.cssSelector("input[type='range']"));
-        String initialSliderValue = slider.getDomAttribute("value");
+        String initialSliderValue = webFormPage.getSlider().getDomAttribute("value");
         log.debug("Initial slider value is: " + initialSliderValue);
-        Thread.sleep(3000);
 
-        moveSliderWithArrowBy(2, slider);
-
-        String newSliderValue = slider.getDomAttribute("value");
+        webFormPage.moveSliderWithArrowBy(2, webFormPage.getSlider());
+        String newSliderValue = webFormPage.getSlider().getDomAttribute("value");
         log.debug("New slider value is: " + newSliderValue);
+        ScreenshotHelper.takeScreenshot(driver, "slider_arrow");
 
         assertThat(initialSliderValue).isNotEqualTo(newSliderValue);
-
-    }
-
-    private void changeSliderValue(int newValue, WebElement slider) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].value='" + newValue + "'", slider);
-    }
-
-    private void moveSliderWithArrowBy(int numberOfMoves, WebElement slider){
-        for(int i = 0; i < numberOfMoves; i++){
-            slider.sendKeys(Keys.ARROW_RIGHT);
-        }
     }
 
 }

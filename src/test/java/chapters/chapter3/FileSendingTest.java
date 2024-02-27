@@ -1,6 +1,7 @@
 package chapters.chapter3;
 
 import baseTest.BaseTest;
+import helpers.ScreenshotHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -18,7 +19,7 @@ public class FileSendingTest extends BaseTest {
         driver.get(UrlProvider.WEB_FORM);
 
         WebElement fileInput = driver.findElement(By.name("my-file"));
-        fileInput.sendKeys("C:\\Users\\mtyszkiewicz\\IdeaProjects\\garcia_selenium\\src\\test\\resources\\filesForUpload\\websockets.png");
+        fileInput.sendKeys("/Users/magdalena/IdeaProjects/garcia_selenium/src/test/resources/filesForUpload/websockets.png");
         driver.findElement(By.tagName("form")).submit();
 
         log.debug("Initial URL was {}", initialUrl);
