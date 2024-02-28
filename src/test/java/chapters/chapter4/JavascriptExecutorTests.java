@@ -25,6 +25,7 @@ public class JavascriptExecutorTests extends BaseTest {
     @Test
     public void should_scroll_into_view() {
         driver.get(UrlProvider.LONG_PAGE);
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement footer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p:last-child")));
         JavascriptHelper.scrollIntoView(driver, footer);

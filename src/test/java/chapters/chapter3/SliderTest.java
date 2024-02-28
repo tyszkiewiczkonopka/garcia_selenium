@@ -20,10 +20,14 @@ public class SliderTest extends BaseTest {
         String initialSliderValue = webFormPage.getSlider().getDomAttribute("value");
         log.debug("Initial slider value is: " + initialSliderValue);
 
-        webFormPage.changeSliderValue(7, webFormPage.getSlider());
+        int newValue = 7;
+        webFormPage.changeSliderValue(newValue, webFormPage.getSlider());
         String newSliderValue = webFormPage.getSlider().getDomAttribute("value");
-        log.debug("New slider value is: " + newSliderValue);
+        log.debug("Expected slider value: " + newValue);
+        log.debug("Actual slider value: " + newSliderValue);
+
         ScreenshotHelper.takeScreenshot(driver, "slider_js");
+        ScreenshotHelper.takeElementScreenshot(webFormPage.getSlider(), "slider_js_element");
 
         assertThat(initialSliderValue).isNotEqualTo(newSliderValue);
     }
@@ -39,7 +43,9 @@ public class SliderTest extends BaseTest {
         webFormPage.moveSliderWithArrowBy(2, webFormPage.getSlider());
         String newSliderValue = webFormPage.getSlider().getDomAttribute("value");
         log.debug("New slider value is: " + newSliderValue);
+
         ScreenshotHelper.takeScreenshot(driver, "slider_arrow");
+        ScreenshotHelper.takeElementScreenshot(webFormPage.getSlider(), "slider_arrow_element");
 
         assertThat(initialSliderValue).isNotEqualTo(newSliderValue);
     }

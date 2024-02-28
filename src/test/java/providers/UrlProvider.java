@@ -8,7 +8,7 @@ public class UrlProvider {
     public static final String DRAG_AND_DROP = APP + "drag-and-drop.html";
     public static final String LOADING_IMAGES = APP + "loading-images.html";
     public static final String LONG_PAGE = APP + "long-page.html";
-
-
+    public static final String SHADOW_DOM = APP + "shadow-dom.html";
+    public static final String COOKIES = APP + "cookies.html";
 
 }
