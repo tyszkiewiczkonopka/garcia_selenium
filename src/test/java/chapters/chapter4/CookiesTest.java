@@ -49,7 +49,7 @@ public class CookiesTest extends BaseTest {
     }
 
     @Test
-    public void shoul_delete_cookie() {
+    public void should_delete_cookie() {
         driver.get(UrlProvider.COOKIES);
         int initialCookieSize = driver.manage().getCookies().size();
         log.debug("Initial cookies size: " + initialCookieSize);

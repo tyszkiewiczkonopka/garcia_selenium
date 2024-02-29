@@ -15,10 +15,9 @@ public class DragAndDropTest extends BaseTest {
 
     @Test
     public void should_drag_and_drop_element_to_target() {
-        DraggablePage draggablePage = new DraggablePage(driver);
-
         driver.get(UrlProvider.DRAG_AND_DROP);
 
+        DraggablePage draggablePage = new DraggablePage(driver);
         Point panelLocation = draggablePage.getPanelLocation();
         Point targetLocation = draggablePage.getTargetLocation();
         log.debug("Initial panel location: " + panelLocation);

@@ -18,7 +18,7 @@ public class FileSendingTest extends BaseTest {
     @Test
     public void should_upload_file() {
         String initialUrl = UrlProvider.WEB_FORM;
-        driver.get(UrlProvider.WEB_FORM);
+        driver.get(initialUrl);
         String relativePath = "src/test/resources/filesForUpload/websockets.png";
         String absolutePath = new File(relativePath).getAbsolutePath();
 

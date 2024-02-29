@@ -14,9 +14,9 @@ public class SliderTest extends BaseTest {
 
     @Test
     public void should_move_slider_with_javascriptexecutor() {
-        WebFormPage webFormPage = new WebFormPage(driver);
-
         driver.get(UrlProvider.WEB_FORM);
+
+        WebFormPage webFormPage = new WebFormPage(driver);
         String initialSliderValue = webFormPage.getSlider().getDomAttribute("value");
         log.debug("Initial slider value is: " + initialSliderValue);
 

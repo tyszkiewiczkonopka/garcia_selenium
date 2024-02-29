@@ -13,7 +13,7 @@ import providers.UrlProvider;
 import java.time.Duration;
 
 
-public class JavascriptExecutorTests extends BaseTest {
+public class JavascriptExecutorTest extends BaseTest {
     @Test
     public void should_scroll_by_pixels() {
         driver.get(UrlProvider.LONG_PAGE);

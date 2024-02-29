@@ -30,7 +30,7 @@ public class DatepickerTest extends BaseTest {
 
         assertThat(pickedDateText).isEqualTo(expectedDate);
     }
-
+//todo: DatepickerPage i przenieść metody prywatne do tego page
     private void chooseCurrentDayAndMonth() {
         WebElement currentMonth = driver.findElement(By.xpath(".//*[@class='month focused']"));
         currentMonth.click();

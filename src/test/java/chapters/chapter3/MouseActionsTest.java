@@ -13,10 +13,9 @@ public class MouseActionsTest extends BaseTest {
 
     @Test
     public void click_test() {
-        DropdownPage dropdownPage = new DropdownPage(driver);
-
         driver.get(UrlProvider.DROPDOWN_MENU);
 
+        DropdownPage dropdownPage = new DropdownPage(driver);
         dropdownPage.contextClickOnDropdown(dropdownPage.getDropdown_2());
         dropdownPage.doubleClickOnDropdown(dropdownPage.getDropdown_3());
         dropdownPage.clickOnDropdown(dropdownPage.getDropdown_1());// if the dropdown is clicked as the first one, other clicks close it and

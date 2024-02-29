@@ -3,14 +3,9 @@ package pageObjects.webDriverFundamentals;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.SystemUtils;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import pageObjects.base.BasePage;
-
-import java.security.Key;
 
 @Getter
 @Slf4j
@@ -20,11 +15,15 @@ public class WebFormPage extends BasePage {
 
     @FindBy(css = "input[type='range']")
     private WebElement slider;
-
     @FindBy(id = "my-text-id")
     private WebElement textInput;
     @FindBy(css = "textarea[class='form-control']")
     private WebElement textarea;
+    @FindBy(css = ".form-select")
+    private WebElement dropdownSelect;
+    @FindBy(name = "my-datalist")
+    private WebElement datalist;
+
 
     public WebFormPage(WebDriver driver) {
         super(driver);
@@ -53,13 +52,16 @@ public class WebFormPage extends BasePage {
         return this;
     }
 
-    public WebFormPage pasteTextToTextarea(){
+    public WebFormPage pasteTextToTextarea() {
         textarea.sendKeys(ctrl, "v");
         log.debug("Pasted text: " + getTextFromTextarea());
         return this;
     }
-    public String getTextFromTextarea(){
+
+    public String getTextFromTextarea() {
         return textarea.getAttribute("value");
     }
+
+
 
 }

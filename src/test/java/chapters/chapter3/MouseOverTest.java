@@ -18,10 +18,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MouseOverTest extends BaseTest {
     @Test
     public void should_show_captions_under_images_when_mouse_over_image() {
-        MouseOverPage mouseOverPage = new MouseOverPage(driver);
-
         driver.get(UrlProvider.MOUSE_OVER);
 
+        MouseOverPage mouseOverPage = new MouseOverPage(driver);
         for (ImageName imageName : ImageName.values()) {
 
             WebElement image = mouseOverPage.findImageNameCorrespondingToCaption(imageName.getValue());

@@ -11,11 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CopyPasteTest extends BaseTest {
     @Test
     public void should_copy_paste_using_keyboard() {
-        WebFormPage webFormPage = new WebFormPage(driver);
-
         driver.get(UrlProvider.WEB_FORM);
         String text = "blablabla";
 
+        WebFormPage webFormPage = new WebFormPage(driver);
         webFormPage
                 .writeTextInInput(text)
                 .copyTextFromTextInput()

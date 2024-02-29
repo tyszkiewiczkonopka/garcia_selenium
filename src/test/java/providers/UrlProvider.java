@@ -10,5 +10,7 @@ public class UrlProvider {
     public static final String LONG_PAGE = APP + "long-page.html";
     public static final String SHADOW_DOM = APP + "shadow-dom.html";
     public static final String COOKIES = APP + "cookies.html";
+    public static final String IFRAME = APP + "iframes.html";
+    public static final String FRAME = APP + "frames.html";
 
 }
