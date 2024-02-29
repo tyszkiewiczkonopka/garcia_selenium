@@ -45,6 +45,7 @@ public class AlertTest extends BaseTest {
         assertThat(alertsPage.getPromptText()).contains(promptText);
 
     }
+    //todo: finish
     @Test
     public void should_blur_page_under_modal(){
         driver.get(UrlProvider.DIALOG_BOXES);
