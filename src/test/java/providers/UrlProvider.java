@@ -12,5 +12,6 @@ public class UrlProvider {
     public static final String COOKIES = APP + "cookies.html";
     public static final String IFRAME = APP + "iframes.html";
     public static final String FRAME = APP + "frames.html";
+    public static final String WEB_STORAGE = APP + "web-storage.html";
 
 }
