@@ -1,1 +1,1 @@
-PRactice tests based on Boni Garcia's O'Reilly book 'Hands-On Selenium WebDriver with Java'.
+Practice tests based on Boni Garcia's O'Reilly book 'Hands-On Selenium WebDriver with Java'.
