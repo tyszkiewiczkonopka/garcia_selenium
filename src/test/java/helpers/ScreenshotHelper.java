@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 
 @Slf4j
 public class ScreenshotHelper {
